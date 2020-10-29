@@ -17,9 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" image="lamborginiMurcelago" translatesAutoresizingMaskIntoConstraints="NO" id="4I7-IW-Rsx">
-                                <rect key="frame" x="87" y="211" width="240" height="128"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Model" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5z-ig-WSX">
                                 <rect key="frame" x="173" y="161" width="68" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -33,19 +30,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Las time started:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nwn-mp-lsk">
-                                <rect key="frame" x="20" y="391" width="128" height="21"/>
+                                <rect key="frame" x="20" y="401" width="128" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of trips:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dtk-di-Hc9">
-                                <rect key="frame" x="20" y="428" width="124" height="21"/>
+                                <rect key="frame" x="20" y="438" width="124" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating: X / 10.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhA-KO-aws">
-                                <rect key="frame" x="280" y="391" width="114" height="21"/>
+                                <rect key="frame" x="280" y="401" width="114" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -77,7 +74,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lff-fY-U6z">
-                                <rect key="frame" x="0.0" y="472" width="414" height="32"/>
+                                <rect key="frame" x="0.0" y="482" width="414" height="32"/>
                                 <segments>
                                     <segment title="Lamborgini"/>
                                     <segment title="Ferrari"/>
@@ -90,19 +87,25 @@
                                 </connections>
                             </segmentedControl>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="Z8A-3d-LBz">
-                                <rect key="frame" x="87" y="589" width="240" height="128"/>
+                                <rect key="frame" x="87" y="599" width="240" height="128"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" image="lamborginiMurcelago" translatesAutoresizingMaskIntoConstraints="NO" id="4I7-IW-Rsx">
+                                <rect key="frame" x="63" y="212" width="288" height="159"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="159" id="8do-X2-DlH"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Nwn-mp-lsk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="4pY-we-srh"/>
-                            <constraint firstItem="4I7-IW-Rsx" firstAttribute="top" secondItem="g5z-ig-WSX" secondAttribute="bottom" constant="20" id="83x-87-UZI"/>
+                            <constraint firstItem="4I7-IW-Rsx" firstAttribute="top" secondItem="g5z-ig-WSX" secondAttribute="bottom" constant="21" id="83x-87-UZI"/>
                             <constraint firstItem="31Y-GW-Uiu" firstAttribute="baseline" secondItem="Fwe-p1-4sq" secondAttribute="baseline" id="8zW-6X-1lL"/>
                             <constraint firstItem="g5z-ig-WSX" firstAttribute="top" secondItem="ZX8-n1-7AI" secondAttribute="bottom" constant="35" id="BpX-zD-pRJ"/>
                             <constraint firstItem="lff-fY-U6z" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IY9-oh-Qw0"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lff-fY-U6z" secondAttribute="trailing" id="Jq8-pT-vqs"/>
-                            <constraint firstItem="4I7-IW-Rsx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="NAU-C3-5Zw"/>
+                            <constraint firstItem="4I7-IW-Rsx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="63" id="NAU-C3-5Zw"/>
                             <constraint firstItem="Fwe-p1-4sq" firstAttribute="leading" secondItem="31Y-GW-Uiu" secondAttribute="trailing" constant="162" id="OAG-ae-1xz"/>
                             <constraint firstItem="lff-fY-U6z" firstAttribute="top" secondItem="Dtk-di-Hc9" secondAttribute="bottom" constant="23" id="PKX-aE-1qJ"/>
                             <constraint firstItem="Nwn-mp-lsk" firstAttribute="leading" secondItem="Dtk-di-Hc9" secondAttribute="leading" id="Rvu-S7-Lo9"/>
@@ -120,7 +123,7 @@
                             <constraint firstItem="ZX8-n1-7AI" firstAttribute="centerX" secondItem="g5z-ig-WSX" secondAttribute="centerX" id="vB6-oS-kY3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="31Y-GW-Uiu" secondAttribute="bottom" constant="24" id="vF4-p6-q9C"/>
                             <constraint firstItem="QhA-KO-aws" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Fwe-p1-4sq" secondAttribute="trailing" id="w1c-AS-STA"/>
-                            <constraint firstItem="Nwn-mp-lsk" firstAttribute="top" secondItem="4I7-IW-Rsx" secondAttribute="bottom" constant="52" id="zsH-F4-arS"/>
+                            <constraint firstItem="Nwn-mp-lsk" firstAttribute="top" secondItem="4I7-IW-Rsx" secondAttribute="bottom" constant="30" id="zsH-F4-arS"/>
                         </constraints>
                     </view>
                     <connections>
@@ -131,7 +134,7 @@
                         <outlet property="myChoiseImageView" destination="Z8A-3d-LBz" id="juG-tM-hou"/>
                         <outlet property="numberOfTripsLabel" destination="Dtk-di-Hc9" id="WAJ-Js-GJA"/>
                         <outlet property="ratingLabel" destination="QhA-KO-aws" id="cXf-hD-8mW"/>
-                        <outlet property="segmentedControl" destination="lff-fY-U6z" id="PGY-lj-oCv"/>
+                        <outlet property="segmentedControl" destination="lff-fY-U6z" id="ClT-cZ-3df"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

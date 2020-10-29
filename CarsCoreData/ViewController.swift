@@ -21,15 +21,44 @@ class ViewController: UIViewController {
         return df
     }()
     
+    @IBOutlet weak var segmentedControl: UISegmentedControl! {
+        didSet{
+        
+        segmentedControl.backgroundColor = UIColor(red: 232, green: 224, blue: 0, alpha: 1.0)
+        updateSegmentedControl()
+            
+            let whiteTitleTextAttribute = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            let blackTitleTextAttribute = [NSAttributedString.Key.foregroundColor: UIColor.black]
+            
+            UISegmentedControl.appearance().setTitleTextAttributes(whiteTitleTextAttribute, for: .normal)
+            UISegmentedControl.appearance().setTitleTextAttributes(blackTitleTextAttribute, for: .selected)
+        }
+    }
     @IBOutlet weak var markLabel: UILabel!
     @IBOutlet weak var modelLabel: UILabel!
     @IBOutlet weak var carImageView: UIImageView!
     @IBOutlet weak var lastTimeStartedLabel: UILabel!
     @IBOutlet weak var numberOfTripsLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var myChoiseImageView: UIImageView!
     
+    @IBAction func segmentedControlPreessed(_ sender: UISegmentedControl) {
+        updateSegmentedControl()
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            segmentedControl.backgroundColor = UIColor(red: 232, green: 224, blue: 0, alpha: 1.0)
+        case 1:
+            segmentedControl.backgroundColor = .systemRed
+        case 2:
+            segmentedControl.backgroundColor = .blue
+        case 3:
+            segmentedControl.backgroundColor = .black
+        case 4:
+            segmentedControl.backgroundColor = UIColor(red: 138, green: 0, blue: 0, alpha: 1.0)
+        default:
+            break
+        }
+    }
     
     @IBAction func startEnginePressed(_ sender: UIButton) {
         car.timesDriven += 1
@@ -63,6 +92,20 @@ class ViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    private func updateSegmentedControl() {
+        let fetchRequest: NSFetchRequest<Car> = Car.fetchRequest()
+        let mark = segmentedControl.titleForSegment(at: segmentedControl.selectedSegmentIndex)
+        fetchRequest.predicate = NSPredicate(format: "mark == %@", mark!)
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            car = results.first
+            insertDataFrom(selectedCar: car!)
+        } catch let error as NSError {
+           print(error.localizedDescription)
+        }
+    }
+    
     private func update(rating: Double) {
         car.rating = rating
         
@@ -79,8 +122,6 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func segmentedControlPreessed(_ sender: UISegmentedControl) {
-    }
     
     private func insertDataFrom(selectedCar car: Car) {
         carImageView.image = UIImage(data: car.imageData!)
@@ -90,7 +131,6 @@ class ViewController: UIViewController {
         ratingLabel.text = "Rating: \(car.rating) / 10"
         numberOfTripsLabel.text = "Number of trips: \(car.timesDriven)"
         lastTimeStartedLabel.text = "Last time started: \(dateFormatter.string(from: car.lastStarted!))"
-        segmentedControl.backgroundColor = car.tintColor as? UIColor
     }
     
     private func getDataFromFile() {
@@ -130,21 +170,10 @@ class ViewController: UIViewController {
             let imageData = image?.pngData()
             car.imageData = imageData
             
-            if let colorDictionary = carDictionary["tintColor"] as? [String : Float] {
-                car.tintColor = getColor(colorDictionary: colorDictionary) 
-            }
         }
     }
     
-    private func getColor(colorDictionary: [String : Float]) -> UIColor {
-        
-        guard let red = colorDictionary["red"],
-              let green = colorDictionary["green"],
-              let blue = colorDictionary["blue"] else { return UIColor() }
-        
-        return UIColor(red: CGFloat(red / 255), green: CGFloat(green / 255), blue: CGFloat(blue / 255), alpha: 1.0)
-        
-    }
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
